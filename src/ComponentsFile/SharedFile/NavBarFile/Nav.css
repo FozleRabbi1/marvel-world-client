@@ -1,0 +1,12 @@
+.nav-herder h2, .nav-herder .contact p{
+    font-size: 14px;
+    font-weight: 500;
+}
+.nav-herder .contact p{
+    border-right: 1px solid rgb(194, 191, 191);
+    text-align: center;
+    padding: 0 10px;
+}
+.nav-herder .contact p:last-child{
+    border: none;
+}

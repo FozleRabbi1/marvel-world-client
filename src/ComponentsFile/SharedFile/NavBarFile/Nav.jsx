@@ -1,22 +1,36 @@
 import { Transition } from "@headlessui/react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import ActiveLink from "../../ActiveLinkFile/ActiveLink";
 import "./Nav.css";
+import { AuthContext } from "../../AuthProviderFile/AuthProvider";
 
 const Nav = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const { user, logOut } = useContext(AuthContext)
+    const logOutFun = () => {
+        logOut()
+            .then(() => { })
+    }
+    console.log(user)
 
     return (
-        <div>
-            <nav className=" ">
+        <div className="sticky top-0 z-50">
+            <nav className="  ">
 
                 <div className=" hidden md:block ">
-                    <div className="nav-herder flex justify-between   py-3 bg-slate-100 sm:px-4 lg:px-4 ">
+                    <div className="nav-herder flex justify-between items-center   py-1 bg-slate-100 sm:px-4 lg:px-4 ">
                         <h2> Free Returns and Free Shipping</h2>
-                        <div className="contact flex  ">
+                        <div className="contact flex items-center  ">
                             <p>++00 123 456 789</p>
-                            <p className="">email@dynamic.com</p>
-                            <p>Account</p>
+                            <p className=""> {
+                                user ? `${user.email}` : "user@gmail.com"
+                            } </p>
+
+                            <p>
+                                {
+                                    user ? <img title={user.displayName} className="h-10 w-10 rounded-full" src={user.photoURL} alt="" /> : "logo"
+                                }
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -47,9 +61,20 @@ const Nav = () => {
                                         Register
                                     </ActiveLink>
 
-                                    <ActiveLink to={"/login"} className=" px-3 py-2 rounded-md text-sm font-medium">
+                                    {
+                                        user ?
+                                            <>
+                                                <button onClick={logOutFun} className=" px-3 py-2 rounded-md text-md">
+                                                    LogOut
+                                                </button>
+                                            </> :
+                                            <ActiveLink to={"/login"} className=" px-3 py-2 rounded-md text-sm font-medium">
+                                                Login
+                                            </ActiveLink>
+                                    }
+                                    {/* <ActiveLink to={"/login"} className=" px-3 py-2 rounded-md text-sm font-medium">
                                         Login
-                                    </ActiveLink>
+                                    </ActiveLink> */}
 
 
 

@@ -5,6 +5,7 @@ import AllToys from "../AllToysFile/AllToys";
 import MyToys from "../MyAllToysFile/MyToys";
 import Login from "../LoginFile/Login";
 import Register from "../RegisterFile/Register";
+import NoteFound from "../NotFoundFile/NoteFound";
 
 
 const router = createBrowserRouter([
@@ -14,7 +15,8 @@ const router = createBrowserRouter([
         {path : "allToys", element : <AllToys></AllToys>},
         {path : "myToys", element : <MyToys></MyToys>},
         {path : "login", element : <Login></Login> },
-        {path : "register", element : <Register></Register> }
+        {path : "register", element : <Register></Register> },
+        {path : "*", element : <NoteFound></NoteFound> },
     ]
 }
 ])

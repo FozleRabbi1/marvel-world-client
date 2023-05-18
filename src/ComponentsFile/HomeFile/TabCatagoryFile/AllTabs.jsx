@@ -12,9 +12,11 @@ const AllTabs = () => {
     const [cateName, setCateName] = useState("Ironman")
     const [loader, setLoader] = useState(true);
 
-    setTimeout(() => {
-        setLoader(false)
-    }, 2000);
+    useEffect(() => {
+        setTimeout(() => {
+            setLoader(false)
+        }, 2000);
+    })
 
     useEffect(() => {
         console.log(cateName)
@@ -32,19 +34,20 @@ const AllTabs = () => {
             <Tabs className="">
                 <TabList>
 
-                    <Tab onMouseUp={()=>setLoader(true)} onClick={() => setCateName("Ironman")}>
+                    <Tab onMouseUp={() => setLoader(true)} onClick={() => setCateName("Ironman")}>
                         Iron Man
                     </Tab>
-                    <Tab onMouseUp={()=>setLoader(true)} onClick={() => setCateName("Hulk")}>
+                    <Tab onMouseUp={() => setLoader(true)} onClick={() => setCateName("Hulk")}>
                         Hulk
                     </Tab>
-                    <Tab onMouseUp={()=>setLoader(true)} onClick={() => setCateName("Mr-America")}>
+                    <Tab onMouseUp={() => setLoader(true)} onClick={() => setCateName("Mr-America")}>
                         Mr-America
                     </Tab>
 
                 </TabList>
 
                 <TabPanel>
+                    <h2 className='text-center font-mono text-2xl font-bold py-2 text-red-500'>Iron Man</h2>
 
                     {
                         loader ? <div className="h-80"> <Lottie className='h-72 mt-6' animationData={loadingImgAnim}></Lottie> </div> :
@@ -74,7 +77,8 @@ const AllTabs = () => {
                 </TabPanel>
 
                 <TabPanel>
-                {
+                    <h2 className='text-center font-mono text-2xl font-bold py-2 text-green-500'>Hulk</h2>
+                    {
                         loader ? <div className="h-80"> <Lottie className='h-72  mt-6' animationData={loadingImgAnim}></Lottie> </div> :
                             <div className="grid md:grid-cols-3 justify-center  text-center  gap-10 px-10 py-5 ">
                                 {
@@ -102,8 +106,9 @@ const AllTabs = () => {
                 </TabPanel>
 
                 <TabPanel>
-                {
-                        loader ? <div className="h-80"> <Lottie className='h-72 mt-6' animationData={loadingImgAnim}></Lottie> </div>:
+                    <h2 className='text-center font-mono text-2xl font-bold py-2 text-blue-500'>Mr-America</h2>
+                    {
+                        loader ? <div className="h-80"> <Lottie className='h-72 mt-6' animationData={loadingImgAnim}></Lottie> </div> :
                             <div className="grid md:grid-cols-3 justify-center  text-center  gap-10 px-10 py-5 ">
                                 {
                                     datas?.map(data =>

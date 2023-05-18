@@ -12,8 +12,8 @@ const CotactUs = () => {
                 <div className="contact-anim ps-6">
                     <Lottie animationData={contactUs} ></Lottie>
                 </div>
-                <div className="contact-form">
-                    <div className="container">
+                <div className="contact-form  flex justify-end md:ps-20 ">
+                    <div className="container ">
                         <form id="contactus" action="" method="post">
                             <h3>Contact us form</h3>
 

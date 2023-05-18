@@ -13,7 +13,7 @@ const ToyCard = () => {
         <div className='bg-gray-200 pb-4'>
             <h2 className='text-center font-mono text-3xl font-bold py-5'>Suppre Heros ForEver</h2>
 
-            <div className=" grid md:grid-cols-3 px-6 md:px-32  gap-10  md:gap-y-10 md:gap-x-20 ">
+            <div className=" grid md:grid-cols-4 px-6 md:px-10  gap-10  md:gap-y-8 md:gap-x-8 ">
 
                 {
                     datas.map(data =>
@@ -24,7 +24,7 @@ const ToyCard = () => {
                                 <img className=' w-80 h-80 md:w-52 md:h-52 mx-auto my-2 ' src={data.picture} alt="" />
                             </div>
                             <div className="">
-                                <h2 className='text-center py-2'>{data.toy_name}</h2>
+                                <h2 className='text-center text-sm py-2'>{data.toy_name}</h2>
 
                             </div>
                         </div>

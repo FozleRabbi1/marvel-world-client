@@ -3,6 +3,9 @@ import { useContext, useState } from "react";
 import ActiveLink from "../../ActiveLinkFile/ActiveLink";
 import "./Nav.css";
 import { AuthContext } from "../../AuthProviderFile/AuthProvider";
+import {  FaPhone  } from 'react-icons/fa';
+// import { AiTwotoneMail } from "react-icons/im";
+import { FaEnvelopeOpen , FaUserAlt} from "react-icons/fa";
 
 const Nav = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +14,7 @@ const Nav = () => {
         logOut()
             .then(() => { })
     }
-    console.log(user)
+    // console.log(user)
 
     return (
         <div className="sticky top-0 z-50">
@@ -21,14 +24,14 @@ const Nav = () => {
                     <div className="nav-herder flex justify-between items-center   py-1 bg-slate-100 sm:px-4 lg:px-4 ">
                         <h2> Free Returns and Free Shipping</h2>
                         <div className="contact flex items-center  ">
-                            <p>++00 123 456 789</p>
-                            <p className=""> {
+                            <p className="flex items-center"> <i className="me-2"> <FaPhone></FaPhone> </i>  ++00 123 456 789</p>
+                            <p className="flex items-center"> <FaEnvelopeOpen FaEnvelopeOpen className="me-2"></FaEnvelopeOpen> {
                                 user ? `${user.email}` : "user@gmail.com"
                             } </p>
 
                             <p>
                                 {
-                                    user ? <img title={user.displayName} className="h-10 w-10 rounded-full" src={user.photoURL} alt="" /> : "logo"
+                                    user ? <img title={user.displayName} className="h-10 w-10 rounded-full" src={user.photoURL} alt="" /> : <FaUserAlt className="h-10 w-10 p-1 rounded-full"></FaUserAlt>
                                 }
                             </p>
                         </div>

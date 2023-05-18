@@ -5,11 +5,14 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../AuthProviderFile/AuthProvider';
 import Swal from 'sweetalert2';
 import SocialLogin from '../SharedFile/SocialLogin/SocialLogin';
+import useTitle from '../DynamicTitleFile/useTitle';
 
 const Register = () => {
     const { createUser, updateUserData } = useContext(AuthContext);
     const navigate = useNavigate();
     const [error, setError] = useState('')
+
+    useTitle("Register")
 
     const handelRegisterForm = (e) => {
         e.preventDefault();

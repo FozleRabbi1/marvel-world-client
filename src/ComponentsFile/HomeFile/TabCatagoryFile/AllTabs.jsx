@@ -1,29 +1,118 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import { useEffect, useState } from 'react';
+import './AllTabs.css'
+import { Link } from 'react-router-dom';
 
 const AllTabs = () => {
-    return (
-        <div className='my-10 px-10'>
 
-            <Tabs>
+    const [datas, setDatas] = useState([])
+    const [cateName, setCateName] = useState("Ironman")
+
+    useEffect(() => {
+        console.log(cateName)
+        fetch(`http://localhost:5000/categoryToyData?name=${cateName}`)
+            .then(res => res.json())
+            .then(data => setDatas(data))
+    }, [cateName])
+
+    console.log(datas)
+
+
+    return (
+        <div className='my-10 px-5 mt-20'>
+
+            <Tabs className="bg-gray-100">
                 <TabList>
-                    <Tab>Title 1</Tab>
-                    <Tab>Title 2</Tab>
-                    <Tab>Title 3</Tab>
+
+                    <Tab onClick={() => setCateName("Ironman")}>
+                        Iron Man
+                    </Tab>
+                    <Tab onClick={() => setCateName("Hulk")}>
+                        Hulk
+                    </Tab>
+                    <Tab onClick={() => setCateName("Mr-America")}>
+                        Mr-America
+                    </Tab>
+
                 </TabList>
 
                 <TabPanel>
-                    <h2>Any content 1</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo officiis aut illum ullam. Perferendis accusamus eius fuga nesciunt sint magni!</p>
+
+                    <div className="grid md:grid-cols-3 justify-center  text-center  gap-10 px-10 py-5 ">
+                        {
+                            datas?.map(data =>
+
+                                < div key={data._id} className='drop-shadow-lg single-data-style' >
+                                    <div className=" flex flex-col  ">
+                                        <img className=' mx-auto' src={data.picture} alt="" />
+                                        <h2>Name : {data.toy_name}</h2>
+                                        <p className=' text-red-600 ' >price : {data.price}</p>
+                                        <p>rating : {data.rating}</p>
+
+                                        <div className="button">
+                                            <Link className='  '>View Ditles</Link>
+                                        </div>
+
+                                    </div>
+                                </ div>
+
+                            )
+                        }
+                    </div>
+
                 </TabPanel>
+
                 <TabPanel>
-                    <h2>Any content 2</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque ipsa fuga excepturi, error debitis perspiciatis sit, itaque perferendis nobis possimus veritatis quos quaerat voluptatum totam eos aperiam minima iusto exercitationem?</p>
+                <div className="grid md:grid-cols-3 justify-center  text-center  gap-10 px-10 py-5 ">
+                        {
+                            datas?.map(data =>
+
+                                < div key={data._id} className='drop-shadow-lg single-data-style' >
+                                    <div className=" flex flex-col  ">
+                                        <img className=' mx-auto' src={data.picture} alt="" />
+                                        <h2>Name : {data.toy_name}</h2>
+                                        <p className=' text-red-600 ' >price : {data.price}</p>
+                                        <p>rating : {data.rating}</p>
+
+                                        <div className="button">
+                                            <Link className='  '>View Ditles</Link>
+                                        </div>
+
+                                    </div>
+                                </ div>
+
+                            )
+                        }
+                    </div>
+
                 </TabPanel>
+
                 <TabPanel>
-                    <h2>Any content 3</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero necessitatibus esse atque eligendi quaerat, soluta ea labore? Ex molestias ducimus aut, sed quia cum voluptatum sunt aliquid exercitationem eius eaque harum nulla quidem consectetur perferendis repellendus excepturi blanditiis! Hic nisi deleniti reprehenderit quis incidunt perspiciatis cupiditate necessitatibus asperiores vero quam.</p>
+                <div className="grid md:grid-cols-3 justify-center  text-center  gap-10 px-10 py-5 ">
+                        {
+                            datas?.map(data =>
+
+                                < div key={data._id} className='drop-shadow-lg single-data-style' >
+                                    <div className=" flex flex-col  ">
+                                        <img className=' mx-auto' src={data.picture} alt="" />
+                                        <h2>Name : {data.toy_name}</h2>
+                                        <p className=' text-red-600 ' >price : {data.price}</p>
+                                        <p>rating : {data.rating}</p>
+
+                                        <div className="button">
+                                            <Link className='  '>View Ditles</Link>
+                                        </div>
+
+                                    </div>
+                                </ div>
+
+                            )
+                        }
+                    </div>
+
                 </TabPanel>
+
             </Tabs>
 
         </div>

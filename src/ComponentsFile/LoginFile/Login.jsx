@@ -4,10 +4,13 @@ import { Link } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../AuthProviderFile/AuthProvider';
 import SocialLogin from '../SharedFile/SocialLogin/SocialLogin';
+import useTitle from '../DynamicTitleFile/useTitle';
 
 const Login = () => {
     const [error, setError] = useState("")
     const { loginUser } = useContext(AuthContext)
+
+    useTitle("Login")
 
     const handelLoginForm = (e) => {
         e.preventDefault();

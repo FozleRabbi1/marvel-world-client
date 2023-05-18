@@ -3,8 +3,10 @@ import { FaSearchPlus } from "react-icons/fa";
 import Footer from "../SharedFile/FooterFile/Footer";
 import preloader from '../../ComponentsFile/LottiReactFile/Preloader.json'
 import Lottie from 'lottie-react'
+import useTitle from "../DynamicTitleFile/useTitle";
 
 const AllToys = () => {
+    useTitle("All Toys")
     const [name, setName] = useState('')
     const [datas, setDatas] = useState([])
     const [loader, setLoader] = useState(true);

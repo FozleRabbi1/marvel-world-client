@@ -44,18 +44,18 @@ const Register = () => {
 
     }
     return (
-        <div>
+        <div className=''>
 
-            <div className="hero ">
-                <div className="hero-content h-96 mt-16 flex-col lg:flex-row px-10 ">
-                    <div className=" mt-6 ">
+            <div className="hero py-10">
+                <div className="hero-content h-96 mt-16 flex-col-2 lg:flex-row px-10  ">
+                    <div className=" mt-6  flex justify-center ">
                         <Lottie className='w-10/12' animationData={registerAnimation}></Lottie>
 
                     </div>
 
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl mt-16 ">
+                    <div className="card flex-shrink-0 w-5/12  shadow-2xl mt-24 mb-5 ">
 
-                        <form className='-mt-5' onSubmit={handelRegisterForm} action="">
+                        <form className='w-12/12' onSubmit={handelRegisterForm} action="">
                             <div className="card-body">
                                 <div className="form-control ">
                                     <label className="label">

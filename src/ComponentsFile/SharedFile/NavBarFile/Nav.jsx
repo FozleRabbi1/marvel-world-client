@@ -25,8 +25,9 @@ const Nav = () => {
                     <div className="flex items-center justify-between h-16">
 
                         <div className="flex w-full justify-between items-center">
-                            <div className="flex-shrink-0">
-                                <h2>logo</h2>
+                            <div className="flex-shrink-0 flex items-center">
+                                <img className="w-12 h-12" src="https://i.ibb.co/RHCcM70/toy.png" alt="" />
+                                <h2 className="ms-2 font-extrabold text-2xl tracking-widest">Kidlo</h2>
                             </div>
                             <div className="hidden md:block">
                                 <div className="ml-10 flex items-baseline space-x-1 text-center">

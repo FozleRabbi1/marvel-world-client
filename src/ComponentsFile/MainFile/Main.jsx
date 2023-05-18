@@ -3,7 +3,7 @@ import Nav from "../SharedFile/NavBarFile/Nav";
 
 const Main = () => {
     return (
-        <div className=" max-w-screen-xl  xl:mx-auto  ">
+        <div className=" max-w-screen-xl  xl:mx-auto font-serif ">
 
             <Nav></Nav>
             <Outlet></Outlet>

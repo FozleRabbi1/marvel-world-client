@@ -1,0 +1,36 @@
+.banner-section .image .animation {
+    /* background-color: green; */
+    height: 500px;
+
+}
+.banner-section .image .animation .lottie {
+    /* background-color: green; */
+    height: 100%;
+
+}
+
+.banner-section .image {
+    margin-top: 20px;
+    animation-name: updownAnimation;
+    animation-duration: 3s;
+
+}
+.banner-section .image .image-upDown {
+    animation-name: updownAnimation;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    transition: all 0.3s;
+
+}
+@keyframes updownAnimation {
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-30px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}

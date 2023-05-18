@@ -11,7 +11,7 @@ const AllToys = () => {
     useEffect(() => {
         setTimeout(() => {
             setLoader(false)
-        }, 1000);
+        }, 500);
     })
 
     useEffect(() => {

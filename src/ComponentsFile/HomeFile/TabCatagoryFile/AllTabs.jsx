@@ -3,11 +3,18 @@ import 'react-tabs/style/react-tabs.css';
 import { useEffect, useState } from 'react';
 import './AllTabs.css'
 import { Link } from 'react-router-dom';
+import loadingImgAnim from "../../LottiReactFile/loadingImgAnim.json";
+import Lottie from 'lottie-react'
 
 const AllTabs = () => {
 
     const [datas, setDatas] = useState([])
     const [cateName, setCateName] = useState("Ironman")
+    const [loader, setLoader] = useState(true);
+
+    setTimeout(() => {
+        setLoader(false)
+    }, 2000);
 
     useEffect(() => {
         console.log(cateName)
@@ -22,16 +29,16 @@ const AllTabs = () => {
     return (
         <div className='my-10 px-5 mt-20'>
 
-            <Tabs className="bg-gray-100">
+            <Tabs className="">
                 <TabList>
 
-                    <Tab onClick={() => setCateName("Ironman")}>
+                    <Tab onMouseUp={()=>setLoader(true)} onClick={() => setCateName("Ironman")}>
                         Iron Man
                     </Tab>
-                    <Tab onClick={() => setCateName("Hulk")}>
+                    <Tab onMouseUp={()=>setLoader(true)} onClick={() => setCateName("Hulk")}>
                         Hulk
                     </Tab>
-                    <Tab onClick={() => setCateName("Mr-America")}>
+                    <Tab onMouseUp={()=>setLoader(true)} onClick={() => setCateName("Mr-America")}>
                         Mr-America
                     </Tab>
 
@@ -39,81 +46,92 @@ const AllTabs = () => {
 
                 <TabPanel>
 
-                    <div className="grid md:grid-cols-3 justify-center  text-center  gap-10 px-10 py-5 ">
-                        {
-                            datas?.map(data =>
+                    {
+                        loader ? <div className="h-80"> <Lottie className='h-72 mt-6' animationData={loadingImgAnim}></Lottie> </div> :
+                            <div className="grid md:grid-cols-3 justify-center  text-center  gap-10 px-10 py-5 ">
+                                {
+                                    datas?.map(data =>
 
-                                < div key={data._id} className='drop-shadow-lg single-data-style' >
-                                    <div className=" flex flex-col  ">
-                                        <img className=' mx-auto' src={data.picture} alt="" />
-                                        <h2>Name : {data.toy_name}</h2>
-                                        <p className=' text-red-600 ' >price : {data.price}</p>
-                                        <p>rating : {data.rating}</p>
+                                        < div data-aos="zoom-in" key={data._id} className='drop-shadow-lg single-data-style' >
+                                            <div className=" flex flex-col  ">
+                                                <img className=' mx-auto' src={data.picture} alt="" />
+                                                <h2>Name : {data.toy_name}</h2>
+                                                <p className=' text-red-600 ' >price : {data.price}</p>
+                                                <p>rating : {data.rating}</p>
 
-                                        <div className="button">
-                                            <Link className='  '>View Ditles</Link>
-                                        </div>
+                                                <div className="button">
+                                                    <Link className='  '>View Ditles</Link>
+                                                </div>
 
-                                    </div>
-                                </ div>
+                                            </div>
+                                        </ div>
 
-                            )
-                        }
-                    </div>
-
-                </TabPanel>
-
-                <TabPanel>
-                <div className="grid md:grid-cols-3 justify-center  text-center  gap-10 px-10 py-5 ">
-                        {
-                            datas?.map(data =>
-
-                                < div key={data._id} className='drop-shadow-lg single-data-style' >
-                                    <div className=" flex flex-col  ">
-                                        <img className=' mx-auto' src={data.picture} alt="" />
-                                        <h2>Name : {data.toy_name}</h2>
-                                        <p className=' text-red-600 ' >price : {data.price}</p>
-                                        <p>rating : {data.rating}</p>
-
-                                        <div className="button">
-                                            <Link className='  '>View Ditles</Link>
-                                        </div>
-
-                                    </div>
-                                </ div>
-
-                            )
-                        }
-                    </div>
+                                    )
+                                }
+                            </div>
+                    }
 
                 </TabPanel>
 
                 <TabPanel>
-                <div className="grid md:grid-cols-3 justify-center  text-center  gap-10 px-10 py-5 ">
-                        {
-                            datas?.map(data =>
+                {
+                        loader ? <div className="h-80"> <Lottie className='h-72  mt-6' animationData={loadingImgAnim}></Lottie> </div> :
+                            <div className="grid md:grid-cols-3 justify-center  text-center  gap-10 px-10 py-5 ">
+                                {
+                                    datas?.map(data =>
 
-                                < div key={data._id} className='drop-shadow-lg single-data-style' >
-                                    <div className=" flex flex-col  ">
-                                        <img className=' mx-auto' src={data.picture} alt="" />
-                                        <h2>Name : {data.toy_name}</h2>
-                                        <p className=' text-red-600 ' >price : {data.price}</p>
-                                        <p>rating : {data.rating}</p>
+                                        < div data-aos="zoom-in" key={data._id} className='drop-shadow-lg single-data-style' >
+                                            <div className=" flex flex-col  ">
+                                                <img className=' mx-auto' src={data.picture} alt="" />
+                                                <h2>Name : {data.toy_name}</h2>
+                                                <p className=' text-red-600 ' >price : {data.price}</p>
+                                                <p>rating : {data.rating}</p>
 
-                                        <div className="button">
-                                            <Link className='  '>View Ditles</Link>
-                                        </div>
+                                                <div className="button">
+                                                    <Link className='  '>View Ditles</Link>
+                                                </div>
 
-                                    </div>
-                                </ div>
+                                            </div>
+                                        </ div>
 
-                            )
-                        }
-                    </div>
+                                    )
+                                }
+                            </div>
+                    }
+
+                </TabPanel>
+
+                <TabPanel>
+                {
+                        loader ? <div className="h-80"> <Lottie className='h-72 mt-6' animationData={loadingImgAnim}></Lottie> </div>:
+                            <div className="grid md:grid-cols-3 justify-center  text-center  gap-10 px-10 py-5 ">
+                                {
+                                    datas?.map(data =>
+
+                                        < div data-aos="zoom-in" key={data._id} className='drop-shadow-lg single-data-style' >
+                                            <div className=" flex flex-col  ">
+                                                <img className=' mx-auto' src={data.picture} alt="" />
+                                                <h2>Name : {data.toy_name}</h2>
+                                                <p className=' text-red-600 ' >price : {data.price}</p>
+                                                <p>rating : {data.rating}</p>
+
+                                                <div className="button">
+                                                    <Link className='  '>View Ditles</Link>
+                                                </div>
+
+                                            </div>
+                                        </ div>
+
+                                    )
+                                }
+                            </div>
+                    }
 
                 </TabPanel>
 
             </Tabs>
+
+            <hr />
 
         </div>
     );

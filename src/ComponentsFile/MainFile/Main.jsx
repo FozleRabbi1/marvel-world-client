@@ -11,7 +11,7 @@ const Main = () => {
     },[])
 
     return (
-        <div className=" max-w-screen-xl  xl:mx-auto font-serif ">
+        <div className=" max-w-screen-xl  xl:mx-auto font-serif  ">
 
             <Nav></Nav>
             <Outlet></Outlet>

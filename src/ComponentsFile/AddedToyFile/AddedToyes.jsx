@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../AuthProviderFile/AuthProvider";
+import Swal from "sweetalert2";
+import Footer from "../SharedFile/FooterFile/Footer";
 
 const AddedToyes = () => {
     const {user} = useContext(AuthContext)
@@ -39,6 +41,15 @@ const AddedToyes = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                if(data.acknowledged){
+                    Swal.fire({
+                        position: '',
+                        icon: 'success',
+                        title: 'SuccessFully Added Your Toy',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+                }
             })
             .catch(err => console.log(err.message))
 
@@ -67,6 +78,10 @@ const AddedToyes = () => {
                         <input className="bg-lime-600  w-10/12 mb-4 p-1 px-2 drop-shadow-lg mx-auto font-mono font-bold text-xl text-red-500	" type="submit" value="Submit" />
                     </form>
                 </div>
+            </div>
+
+            <div className="mt-20">
+                <Footer></Footer>
             </div>
         </div>
     );

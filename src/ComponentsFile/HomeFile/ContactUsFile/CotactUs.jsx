@@ -4,15 +4,16 @@ import './ContactUs.css';
 
 const CotactUs = () => {
     return (
-        <div className='my-10 pb-10'>
+        <div className='my-10 pb-10 overflow-x-hidden'>
 
             <h2 className='text-center font-mono text-3xl font-bold py-5 ' >Contact Us</h2>
 
             <div className='grid md:grid-cols-2'>
-                <div className="contact-anim ps-6">
+                <div data-aos="fade-right" className="contact-anim ps-6">
                     <Lottie animationData={contactUs} ></Lottie>
                 </div>
-                <div className="contact-form  flex justify-end md:ps-20 ">
+
+                <div data-aos="fade-left" className="contact-form  flex justify-end md:ps-20 ">
                     <div className="container ">
                         <form id="contactus" action="" method="post">
                             <h3>Contact us form</h3>

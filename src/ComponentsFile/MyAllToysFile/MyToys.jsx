@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProviderFile/AuthProvider";
 import { FaEdit, FaRegTrashAlt } from "react-icons/fa";
+import Swal from "sweetalert2";
+import Footer from "../SharedFile/FooterFile/Footer";
 
 const MyToys = () => {
     const { user } = useContext(AuthContext)
@@ -12,9 +14,44 @@ const MyToys = () => {
             .then(data => setUserData(data))
     }, [user?.email])
 
-    const deleteButton = (id) =>{
-        console.log(id)    
-            
+    const deleteButton = (id) => {
+        console.log(id)
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't to delete this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+
+
+
+                fetch(`http://localhost:5000/allToysDatas/${id}`, {
+                    method: "DELETE"
+                })
+                    .then((res) => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        }
+                        // const newdata = userDatas.map(data => parseInt(data._id) !== parseInt(id));
+                        // setUserData(newdata)
+                        fetch(`http://localhost:5000/logedInUserDatas?email=${user?.email}`)
+                            .then(res => res.json())
+                            .then(data => setUserData(data))
+                    })
+
+            }
+        })
+
     }
 
     return (
@@ -23,7 +60,7 @@ const MyToys = () => {
             <h2 className='text-center font-mono text-2xl font-bold py-5 text-red-500'>this is my toyes</h2>
 
             {
-                userDatas?.length === 0 ? <h2 className="text-center font-mono text-5xl font-bold py-2 mt-32 text-red-500">Data Not Available Add Some Products</h2>
+                userDatas?.length === 0 ? <h2 className="text-center font-mono text-5xl font-bold py-2 mb-44 mt-24 text-red-500">Data Not Available Add Some Products</h2>
                     :
                     userDatas?.map(data =>
 
@@ -45,9 +82,9 @@ const MyToys = () => {
                                 </div>
 
                                 <div className="buttons flex flex-col justify-center items-center">
-                                    <button  className="mb-2 flex justify-center items-center" >
+                                    <button className="mb-2 flex justify-center items-center" >
                                         <FaEdit className=" text-2xl text-green-500  "></FaEdit> </button>
-                                    <button onClick={()=>deleteButton(data._id)} className="" >
+                                    <button onClick={() => deleteButton(data._id)} className="" >
                                         <FaRegTrashAlt className="text-2xl text-red-500"></FaRegTrashAlt>
                                     </button>
                                 </div>
@@ -59,6 +96,9 @@ const MyToys = () => {
                     )
             }
 
+            <div className="mt-20">
+                <Footer></Footer>
+            </div>
         </div>
     );
 };

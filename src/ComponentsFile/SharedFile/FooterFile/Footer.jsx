@@ -1,7 +1,7 @@
 
 const Footer = () => {
     return (
-        <div data-aos="flip-up">
+        <div data-aos="fade-up">
             <footer className="footer p-10 bg-gray-500 text-base-content">
                 <div>
                     <span className="footer-title">Services</span>

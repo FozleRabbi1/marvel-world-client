@@ -53,13 +53,13 @@ const AllTabs = () => {
                         loader ? <div className="h-80"> <Lottie className='h-72 mt-6' animationData={loadingImgAnim}></Lottie> </div> :
                             <div className="grid md:grid-cols-3 justify-center  text-center  gap-10 px-10 py-5 ">
                                 {
-                                    datas?.map(data =>
+                                    datas?.slice(0,6).map(data =>
 
                                         < div data-aos="zoom-in" key={data._id} className='drop-shadow-lg single-data-style' >
                                             <div className=" flex flex-col  ">
                                                 <img className=' mx-auto' src={data.picture} alt="" />
                                                 <h2>Name : {data.toy_name}</h2>
-                                                <p className=' text-red-600 ' >price : {data.price}</p>
+                                                <p className=' text-red-600 ' >price : {data.price} $ </p>
                                                 <p>rating : {data.rating}</p>
 
                                                     <Link to={`viewDitles/${data._id}`} className=' button '>View Ditles</Link>
@@ -80,13 +80,13 @@ const AllTabs = () => {
                         loader ? <div className="h-80"> <Lottie className='h-72  mt-6' animationData={loadingImgAnim}></Lottie> </div> :
                             <div className="grid md:grid-cols-3 justify-center  text-center  gap-10 px-10 py-5 ">
                                 {
-                                    datas?.map(data =>
+                                    datas?.slice(0,6).map(data =>
 
                                         < div data-aos="zoom-in" key={data._id} className='drop-shadow-lg single-data-style' >
                                             <div className=" flex flex-col  ">
                                                 <img className=' mx-auto' src={data.picture} alt="" />
                                                 <h2>Name : {data.toy_name}</h2>
-                                                <p className=' text-red-600 ' >price : {data.price}</p>
+                                                <p className=' text-red-600 ' >price : {data.price} $</p>
                                                 <p>rating : {data.rating}</p>
 
                                                 <Link to={`viewDitles/${data._id}`} className=' button '>View Ditles</Link>
@@ -107,13 +107,13 @@ const AllTabs = () => {
                         loader ? <div className="h-80"> <Lottie className='h-72 mt-6' animationData={loadingImgAnim}></Lottie> </div> :
                             <div className="grid md:grid-cols-3 justify-center  text-center  gap-10 px-10 py-5 ">
                                 {
-                                    datas?.map(data =>
+                                   datas?.slice(0,6).map(data =>
 
-                                        < div data-aos="zoom-in" key={data._id} className='drop-shadow-lg single-data-style' >
+                                        <    div data-aos="zoom-in" key={data._id} className='drop-shadow-lg single-data-style' >
                                             <div className=" flex flex-col  ">
                                                 <img className=' mx-auto' src={data.picture} alt="" />
                                                 <h2>Name : {data.toy_name}</h2>
-                                                <p className=' text-red-600 ' >price : {data.price}</p>
+                                                <p className=' text-red-600 ' >price : {data.price} $</p>
                                                 <p>rating : {data.rating}</p>
 
                                                 <Link to={`viewDitles/${data._id}`} className=' button '>View Ditles</Link>

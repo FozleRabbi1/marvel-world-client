@@ -9,6 +9,7 @@ import NoteFound from "../NotFoundFile/NoteFound";
 import AddedToyes from "../AddedToyFile/AddedToyes";
 import Detailes from "../DetailesFile/Detailes";
 import Private from "../PriveteRouteFile/Private";
+import UpdateToy from "../UpdateToyFile/UpdateToy";
 
 
 const router = createBrowserRouter([
@@ -24,17 +25,24 @@ const router = createBrowserRouter([
                     </Private>
             },
             {
-                path: "addedToyes", element: 
-                <Private>
-                    <AddedToyes></AddedToyes>
-                </Private>
+                path: "addedToyes", element:
+                    <Private>
+                        <AddedToyes></AddedToyes>
+                    </Private>
             },
             {
-                path: "viewDitles/:id", element: 
-                <Private>
-                    <Detailes></Detailes>
-                </Private>,
+                path: "viewDitles/:id", element:
+                    <Private>
+                        <Detailes></Detailes>
+                    </Private>,
                 loader: ({ params }) => fetch(`http://localhost:5000/allToysDatas/${params.id}`)
+            },
+            {
+                path: "updateToy/:id", element:
+                    <Private>
+                        <UpdateToy></UpdateToy>
+                    </Private>,
+                loader: ({ params }) => fetch(`http://localhost:5000/updateRouteData/${params.id}`)
             },
             { path: "login", element: <Login></Login> },
             { path: "register", element: <Register></Register> },

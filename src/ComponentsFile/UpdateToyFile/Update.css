@@ -1,0 +1,66 @@
+.image-div{
+    width: 50%;
+    height: 80vh;
+    margin: 10px auto;
+    position: relative;
+}
+
+.image-div img{
+    width: 100%;
+    height: 100%;
+
+}
+.updateForm{
+    position: absolute;
+    background-color: rgba(0,0,0,0.6);
+    width: 100%;
+    height: 80vh;
+    top: 0;
+    left: 0;
+}
+.updateForm form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20%;
+    /* transform: translate(); */
+    padding: 0 20px;
+}
+.updateForm form .input{
+    background-color: transparent;
+    margin-top: 10px;
+    padding: 5px 10px;
+    box-shadow: inset 0 0 35px 5px rgba(16, 173, 235, 0.8), inset 0 2px 1px 1px rgba(96, 158, 240, 0.4), inset 0 -2px 1px rgba(36, 168, 230, 0.25);
+    outline: none;
+    color: red;
+    font-size: 22px;
+
+}
+
+.updateForm form .textarea{
+    background-color: transparent;
+    margin-top: 10px;
+    padding: 5px 10px;
+    box-shadow: inset 0 0 35px 5px rgba(16, 173, 235, 0.8), inset 0 2px 1px 1px rgba(96, 158, 240, 0.4), inset 0 -2px 1px rgba(36, 168, 230, 0.25);
+    outline: none;
+    color: red;
+    font-size: 18px;
+}
+.updateForm form .button{
+    box-shadow: inset 0 0 35px 5px rgba(7, 179, 247, 0.8), inset 0 2px 1px 1px rgba(96, 158, 240, 0.4), inset 0 -2px 1px rgba(36, 168, 230, 0.25);
+    margin-top: 15px;
+    padding: 5px;
+}
+
+@media (max-width : 776px) {
+    .image-div{
+        width: 90%;
+        height: 100vh;
+    }    
+    .updateForm form{
+        margin-top: 10%;
+    }
+    .updateForm{
+        height: 100vh;
+    }
+}

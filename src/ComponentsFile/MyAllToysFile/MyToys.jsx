@@ -3,6 +3,7 @@ import { AuthContext } from "../AuthProviderFile/AuthProvider";
 import { FaEdit, FaRegTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import Footer from "../SharedFile/FooterFile/Footer";
+import { Link } from "react-router-dom";
 
 const MyToys = () => {
     const { user } = useContext(AuthContext)
@@ -82,8 +83,9 @@ const MyToys = () => {
                                 </div>
 
                                 <div className="buttons flex flex-col justify-center items-center">
-                                    <button className="mb-2 flex justify-center items-center" >
-                                        <FaEdit className=" text-2xl text-green-500  "></FaEdit> </button>
+                                    <Link to={`/updateToy/${data._id}`} className="mb-2 flex justify-center items-center">
+                                        <FaEdit className=" text-2xl text-green-500  "></FaEdit>
+                                    </Link>
                                     <button onClick={() => deleteButton(data._id)} className="" >
                                         <FaRegTrashAlt className="text-2xl text-red-500"></FaRegTrashAlt>
                                     </button>

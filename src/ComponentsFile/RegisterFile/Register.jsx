@@ -8,7 +8,7 @@ import SocialLogin from '../SharedFile/SocialLogin/SocialLogin';
 import useTitle from '../DynamicTitleFile/useTitle';
 
 const Register = () => {
-    const { createUser, updateUserData } = useContext(AuthContext);
+    const { createUser, updateUserData, logOut } = useContext(AuthContext);
     const navigate = useNavigate();
     const [error, setError] = useState('')
 
@@ -33,10 +33,10 @@ const Register = () => {
                     timer: 1500
                   })
                 updateUserData(name, photoUrl, email)
-                    .then((res) => {
-                        console.log(res)
+                    .then(() => {
+                        logOut()
+                        navigate("/login")
                     })
-                    navigate("/")
 
             }).catch(err => setError(err.message) )
         form.reset()

@@ -18,13 +18,15 @@ const AllToys = () => {
     })
 
     useEffect(() => {
-        fetch("http://localhost:5000/allToysDatas")
+        // fetch("http://localhost:5000/allToysDatas")
+        fetch("https://marvel-toy-server.vercel.app/allToysDatas")
             .then(res => res.json())
             .then(data => setDatas(data))
     }, [])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allToysDatasName?toyName=${name}`)
+        // fetch(`http://localhost:5000/allToysDatasName?toyName=${name}`)
+        fetch(`https://marvel-toy-server.vercel.app/allToysDatasName?toyName=${name}`)
             .then(res => res.json())
             .then(data => setDatas(data))
     }, [name])

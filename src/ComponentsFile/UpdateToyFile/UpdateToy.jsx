@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import './Update.css';
+import Swal from "sweetalert2";
 
 const UpdateToy = () => {
     const data = useLoaderData();
@@ -14,7 +15,8 @@ const UpdateToy = () => {
         const updatedData = { price, available_quantity, detail_description };
         // console.log(updatedData)
 
-        fetch(`http://localhost:5000/updateRouteData/${_id}`, {
+        // fetch(`http://localhost:5000/updateRouteData/${_id}`, {
+        fetch(`https://marvel-toy-server.vercel.app/updateRouteData/${_id}`, {
             method: 'PATCH',
             body: JSON.stringify(updatedData),
             headers: {
@@ -24,6 +26,15 @@ const UpdateToy = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                if(data.matchedCount > 0){
+                    Swal.fire({
+                        position: '',
+                        icon: 'success',
+                        title: 'Data Updated',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+                }
             }).catch(err => console.error(err.message))
 
     }

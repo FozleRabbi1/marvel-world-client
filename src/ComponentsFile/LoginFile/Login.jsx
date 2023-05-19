@@ -1,10 +1,12 @@
 import Lottie from 'lottie-react'
 import loginAnimatio from '../LottiReactFile/LoginAnimation.json'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../AuthProviderFile/AuthProvider';
 import SocialLogin from '../SharedFile/SocialLogin/SocialLogin';
 import useTitle from '../DynamicTitleFile/useTitle';
+// import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     useTitle("Login")
@@ -16,6 +18,17 @@ const Login = () => {
     const from = location.state?.from?.pathname || "/";
     console.log(from)
 
+    useEffect(() => {
+        // toast("Login First")
+        Swal.fire({
+            position: '',
+            icon: 'warning',
+            title: 'Login First',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }, [])
+
 
 
     const handelLoginForm = (e) => {
@@ -26,7 +39,8 @@ const Login = () => {
         const password = form.password.value;
         loginUser(email, password)
             .then(() => {
-                navigate(from, {replace : true})
+                navigate(from, { replace: true })
+                // toast("login success")
             })
             .catch(err => setError(err.message))
 

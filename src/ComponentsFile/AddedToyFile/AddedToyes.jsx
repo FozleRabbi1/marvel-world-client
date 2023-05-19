@@ -6,6 +6,7 @@ import Footer from "../SharedFile/FooterFile/Footer";
 const AddedToyes = () => {
     const {user} = useContext(AuthContext)
 
+
     const handedAddedToyFun = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -31,7 +32,8 @@ const AddedToyes = () => {
             detail_description: textArea
         }
 
-        fetch("http://localhost:5000/allToysDatas", {
+        // fetch("http://localhost:5000/allToysDatas", {
+        fetch("https://marvel-toy-server.vercel.app/allToysDatas", {
             method: 'POST',
             body: JSON.stringify(addedData),
             headers: {

@@ -20,7 +20,8 @@ const AllTabs = () => {
 
     useEffect(() => {
         console.log(cateName)
-        fetch(`http://localhost:5000/categoryToyData?name=${cateName}`)
+        // fetch(`http://localhost:5000/categoryToyData?name=${cateName}`)
+        fetch(`https://marvel-toy-server.vercel.app/categoryToyData?name=${cateName}`)
             .then(res => res.json())
             .then(data => setDatas(data))
     }, [cateName])

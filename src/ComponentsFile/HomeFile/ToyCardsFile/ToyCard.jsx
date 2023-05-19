@@ -4,7 +4,8 @@ import './ToyCard.css';
 const ToyCard = () => {
     const [datas, setDatas] = useState([])
     useEffect(() => {
-        fetch("http://localhost:5000/allToysDatas")
+        // fetch("http://localhost:5000/allToysDatas")
+        fetch("https://marvel-toy-server.vercel.app/allToysDatas")
             .then(res => res.json())
             .then(data => setDatas(data))
     }, [])

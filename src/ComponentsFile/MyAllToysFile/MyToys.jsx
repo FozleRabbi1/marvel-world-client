@@ -10,7 +10,8 @@ const MyToys = () => {
     const [userDatas, setUserData] = useState();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/logedInUserDatas?email=${user?.email}`)
+        // fetch(`http://localhost:5000/logedInUserDatas?email=${user?.email}`)
+        fetch(`https://marvel-toy-server.vercel.app/logedInUserDatas?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setUserData(data))
     }, [user?.email])
@@ -31,7 +32,8 @@ const MyToys = () => {
 
 
 
-                fetch(`http://localhost:5000/allToysDatas/${id}`, {
+                // fetch(`http://localhost:5000/allToysDatas/${id}`, {
+                fetch(`https://marvel-toy-server.vercel.app/allToysDatas/${id}`, {
                     method: "DELETE"
                 })
                     .then((res) => res.json())
@@ -45,7 +47,8 @@ const MyToys = () => {
                         }
                         // const newdata = userDatas.map(data => parseInt(data._id) !== parseInt(id));
                         // setUserData(newdata)
-                        fetch(`http://localhost:5000/logedInUserDatas?email=${user?.email}`)
+                        // fetch(`http://localhost:5000/logedInUserDatas?email=${user?.email}`)
+                        fetch(`https://marvel-toy-server.vercel.app/logedInUserDatas?email=${user?.email}`)
                             .then(res => res.json())
                             .then(data => setUserData(data))
                     })

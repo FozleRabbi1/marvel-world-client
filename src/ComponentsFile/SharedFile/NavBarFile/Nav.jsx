@@ -3,9 +3,9 @@ import { useContext, useState } from "react";
 import ActiveLink from "../../ActiveLinkFile/ActiveLink";
 import "./Nav.css";
 import { AuthContext } from "../../AuthProviderFile/AuthProvider";
-import {  FaPhone  } from 'react-icons/fa';
+import { FaPhone } from 'react-icons/fa';
 // import { AiTwotoneMail } from "react-icons/im";
-import { FaEnvelopeOpen , FaUserAlt} from "react-icons/fa";
+import { FaEnvelopeOpen, FaUserAlt } from "react-icons/fa";
 
 const Nav = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -56,14 +56,21 @@ const Nav = () => {
                                         All Toys
                                     </ActiveLink>
 
-                                    <ActiveLink to={"/myToys"} className=" px-3 py-2 rounded-md text-sm font-medium">
-                                        My Toys
-                                    </ActiveLink>
+
+                                    {
+                                        user && <>
+                                            <ActiveLink to={"/myToys"} className=" px-3 py-2 rounded-md text-sm font-medium">
+                                                My Toys
+                                            </ActiveLink>
+                                            <ActiveLink to={"/addedToyes"} className=" px-3 py-2 rounded-md text-sm font-medium">
+                                            Add Toyes
+                                            </ActiveLink>
+                                        </>
+                                    }
 
                                     <ActiveLink to={"/register"} className=" px-3 py-2 rounded-md text-sm font-medium">
                                         Register
                                     </ActiveLink>
-
                                     {
                                         user ?
                                             <>

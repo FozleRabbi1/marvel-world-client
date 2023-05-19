@@ -1,16 +1,22 @@
 import Lottie from 'lottie-react'
 import loginAnimatio from '../LottiReactFile/LoginAnimation.json'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../AuthProviderFile/AuthProvider';
 import SocialLogin from '../SharedFile/SocialLogin/SocialLogin';
 import useTitle from '../DynamicTitleFile/useTitle';
 
 const Login = () => {
+    useTitle("Login")
     const [error, setError] = useState("")
     const { loginUser } = useContext(AuthContext)
+    const location = useLocation();
+    const navigate = useNavigate();
 
-    useTitle("Login")
+    const from = location.state?.from?.pathname || "/";
+    console.log(from)
+
+
 
     const handelLoginForm = (e) => {
         e.preventDefault();
@@ -19,7 +25,9 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         loginUser(email, password)
-            .then(() => { })
+            .then(() => {
+                navigate(from, {replace : true})
+            })
             .catch(err => setError(err.message))
 
         form.reset()

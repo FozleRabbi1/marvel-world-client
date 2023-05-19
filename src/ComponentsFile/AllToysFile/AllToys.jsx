@@ -4,6 +4,7 @@ import Footer from "../SharedFile/FooterFile/Footer";
 import preloader from '../../ComponentsFile/LottiReactFile/Preloader.json'
 import Lottie from 'lottie-react'
 import useTitle from "../DynamicTitleFile/useTitle";
+import { Link } from "react-router-dom";
 
 const AllToys = () => {
     useTitle("All Toys")
@@ -98,7 +99,8 @@ const AllToys = () => {
                                                 <td className="bg-gray-500 text-red-400">{data.price} $=/</td>
                                                 <td className="bg-gray-500 text-white"> {data.available_quantity} </td>
                                                 <th className="bg-gray-500 text-white">
-                                                    <button className=" bg-green-300 rounded-lg px-5 py-1 ">details</button>
+                                                    {/* <button className=" bg-green-300 rounded-lg px-5 py-1 ">details</button> */}
+                                                    <Link to={`/viewDitles/${data._id}`} className=" bg-green-300 rounded-lg px-5 py-1 ">Show Ditles</Link>
                                                 </th>
                                             </tr>
                                         )

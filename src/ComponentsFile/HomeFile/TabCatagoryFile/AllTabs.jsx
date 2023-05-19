@@ -62,9 +62,7 @@ const AllTabs = () => {
                                                 <p className=' text-red-600 ' >price : {data.price}</p>
                                                 <p>rating : {data.rating}</p>
 
-                                                <div className="button">
-                                                    <Link className='  '>View Ditles</Link>
-                                                </div>
+                                                    <Link to={`viewDitles/${data._id}`} className=' button '>View Ditles</Link>
 
                                             </div>
                                         </ div>
@@ -91,9 +89,7 @@ const AllTabs = () => {
                                                 <p className=' text-red-600 ' >price : {data.price}</p>
                                                 <p>rating : {data.rating}</p>
 
-                                                <div className="button">
-                                                    <Link className='  '>View Ditles</Link>
-                                                </div>
+                                                <Link to={`viewDitles/${data._id}`} className=' button '>View Ditles</Link>
 
                                             </div>
                                         </ div>
@@ -120,9 +116,7 @@ const AllTabs = () => {
                                                 <p className=' text-red-600 ' >price : {data.price}</p>
                                                 <p>rating : {data.rating}</p>
 
-                                                <div className="button">
-                                                    <Link className='  '>View Ditles</Link>
-                                                </div>
+                                                <Link to={`viewDitles/${data._id}`} className=' button '>View Ditles</Link>
 
                                             </div>
                                         </ div>

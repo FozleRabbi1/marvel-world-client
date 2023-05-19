@@ -7,12 +7,19 @@ const Detailes = () => {
         picture, Sub_category, toy_name, seller_name, seller_email, price, rating, available_quantity, detail_description,
     } = data[0]
     console.log(data)
+    const defaultImage = "https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482953.jpg"
     return (
         <div className="">
 
             <div className="showDitles grid md:grid-cols-2 justify-center items-center gap-10 md:mx-24">
                 <div className="img-div mt-4">
-                    <img className="" src={picture} alt="" />
+                    {/* {
+                        picture ? <img className="" src={picture} alt="" /> : <p>no img</p>
+                    } */}
+
+                    <img className="" src={picture || defaultImage} alt="" />
+
+
                 </div>
 
                 <div className="text ">

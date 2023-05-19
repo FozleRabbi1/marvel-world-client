@@ -22,4 +22,5 @@
  * react icon (fortawesome)
  * react_tabs
  * sweetTost2
+ * react_responsive_Nav
  * ETC

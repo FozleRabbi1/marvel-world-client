@@ -13,11 +13,9 @@ const Detailes = () => {
 
             <div className="showDitles grid md:grid-cols-2 justify-center items-center gap-10 md:mx-24">
                 <div className="img-div mt-4">
-                    {/* {
-                        picture ? <img className="" src={picture} alt="" /> : <p>no img</p>
-                    } */}
 
-                    <img className="" src={picture || defaultImage} alt="" />
+                    <img className="" src={picture || defaultImage} alt="" />   
+                    {/* default image kaj korche na */}
 
 
                 </div>

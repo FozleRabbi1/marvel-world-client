@@ -16,7 +16,7 @@ const ToyCard = () => {
             <div className=" grid md:grid-cols-4 px-6 md:px-10  gap-10  md:gap-y-8 md:gap-x-8 ">
 
                 {
-                    datas.map(data =>
+                    datas.slice(0,8).map(data =>
 
                         <div key={data._id} data-aos="fade-up" className=" card-style ">
 

@@ -6,14 +6,8 @@ import Loading from "../Loading/Loading";
 const Private = ({ children }) => {
     const { user, loading } = useContext(AuthContext)
     const location = useLocation();
-    console.log(user)
-
-    // useEffect(()=>{
-    //     setLoading(false)
-    // },[])
     
     if (loading) {
-        // return <p>loading...........</p>
         return <Loading></Loading>
     }
     if (user) {

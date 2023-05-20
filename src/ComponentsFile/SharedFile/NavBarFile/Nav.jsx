@@ -23,7 +23,9 @@ const Nav = () => {
 
                 <div className=" hidden md:block ">
                     <div className="nav-herder flex justify-between items-center   py-1 bg-slate-100 sm:px-4 lg:px-4 ">
-                        <h2> Free Returns and Free Shipping</h2>
+                        <h2> Free Returns and Free Shipping <br />
+                           <small> Copyright © 2023-2024 This Company. All rights reserved.</small>
+                        </h2>
                         <div className="contact flex items-center  ">
                             <p className="flex items-center"> <i className="me-2"> <FaPhone></FaPhone> </i>  ++00 123 456 789</p>
                             <p className="flex items-center"> <FaEnvelopeOpen FaEnvelopeOpen className="me-2"></FaEnvelopeOpen> {
@@ -56,7 +58,7 @@ const Nav = () => {
                                     <ActiveLink to={"/allToys"} className=" px-3 py-2 rounded-md text-sm font-medium">
                                         All Toys
                                     </ActiveLink>
-                                    
+
 
 
                                     {
@@ -71,7 +73,7 @@ const Nav = () => {
                                     }
 
                                     <ActiveLink to={"/blog"} className=" px-3 py-2 rounded-md text-sm font-medium">
-                                    Blogs
+                                        Blogs
                                     </ActiveLink>
 
                                     <ActiveLink to={"/register"} className=" px-3 py-2 rounded-md text-sm font-medium">
@@ -201,9 +203,9 @@ const Nav = () => {
                                 </div>
                                 <div className="contact flex items-center  ">
                                     {/* <p> */}
-                                        {
-                                            user ? <img title={user.displayName} className=" mx-auto h-10 w-10 rounded-full" src={user.photoURL} alt="" /> : <FaUserAlt className="h-10 w-10 p-1 rounded-full"></FaUserAlt>
-                                        }
+                                    {
+                                        user ? <img title={user.displayName} className=" mx-auto h-10 w-10 rounded-full" src={user.photoURL} alt="" /> : <FaUserAlt className="h-10 w-10 p-1 rounded-full"></FaUserAlt>
+                                    }
                                     {/* </p> */}
                                 </div>
                             </div>

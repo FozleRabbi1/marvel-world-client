@@ -7,6 +7,8 @@ import ToyCard from "../ToyCardsFile/ToyCard";
 import preloader from '../../LottiReactFile/Preloader.json'
 import Lottie from 'lottie-react'
 import { useEffect, useState } from "react";
+import Kidex from "../KidesFile/Kidex";
+// import Count from "../CountUpFile/Count";
 
 const Home = () => {
     useTitle("home")
@@ -29,6 +31,8 @@ const Home = () => {
                         <Header></Header>
                         <ToyCard></ToyCard>
                         <AllTabs></AllTabs>
+                        {/* <Count></Count> */}
+                        <Kidex></Kidex>
                         <CotactUs></CotactUs>
                         <Footer></Footer>
                     </div>

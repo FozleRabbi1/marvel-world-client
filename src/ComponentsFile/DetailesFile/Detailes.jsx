@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import './Detailes.css';
+import { Rating } from "@smastrom/react-rating";
 
 const Detailes = () => {
     const data = useLoaderData();
@@ -14,7 +15,7 @@ const Detailes = () => {
             <div className="showDitles grid md:grid-cols-2 justify-center items-center gap-10 md:mx-24">
                 <div className="img-div mt-4">
 
-                    <img className="" src={picture || defaultImage} alt="" />   
+                    <img className="" src={picture || defaultImage} alt="" />
                     {/* default image kaj korche na */}
 
 
@@ -27,7 +28,11 @@ const Detailes = () => {
                     <h3> <span className="font-bold">Email</span> : {seller_email}</h3>
                     <h3> <span className="font-bold">Price</span> : {price} $=/</h3>
                     <h3> <span className="font-bold">Quantity</span> : {available_quantity}</h3>
-                    <h3> <span className="font-bold">rating</span> : {rating}</h3>
+                    <Rating
+                        style={{ maxWidth: 110}}
+                        value={rating}
+                        readOnly
+                    />
                     <h3> <span className="font-bold">Description</span> : {detail_description}</h3>
                 </div>
             </div>

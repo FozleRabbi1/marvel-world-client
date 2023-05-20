@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
+import '@smastrom/react-rating/style.css'
 
 const Main = () => {
     useEffect(() => {

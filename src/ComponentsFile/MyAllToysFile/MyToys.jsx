@@ -4,6 +4,7 @@ import { FaEdit, FaEye, FaRegTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import Footer from "../SharedFile/FooterFile/Footer";
 import { Link } from "react-router-dom";
+import { Rating } from "@smastrom/react-rating";
 
 const MyToys = () => {
     const { user } = useContext(AuthContext)
@@ -58,9 +59,6 @@ const MyToys = () => {
                                 'success'
                             )
                         }
-                        // const newdata = userDatas.map(data => parseInt(data._id) !== parseInt(id));
-                        // setUserData(newdata)
-                        // fetch(`http://localhost:5000/logedInUserDatas?email=${user?.email}`)
                         fetch(`https://marvel-toy-server.vercel.app/logedInUserDatas?email=${user?.email}`)
                             .then(res => res.json())
                             .then(data => setUserData(data))
@@ -106,7 +104,11 @@ const MyToys = () => {
 
                                             <div className="text flex flex-col  justify-center">
                                                 <h2 className="text-red-500"> <span className="font-bold "> Price</span> : {data.price} =/$</h2>
-                                                <h2> <span className="font-bold"> Rating</span> : {data.rating}</h2>
+                                                <Rating
+                                                    style={{ maxWidth: 110 }}
+                                                    value={data.rating}
+                                                    readOnly
+                                                />
                                                 <h2> <span className="font-bold"> Quantity</span> : {data.available_quantity} </h2>
                                             </div>
 

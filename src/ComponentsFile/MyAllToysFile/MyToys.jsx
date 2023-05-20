@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProviderFile/AuthProvider";
-import { FaEdit, FaRegTrashAlt } from "react-icons/fa";
+import { FaEdit, FaEye, FaRegTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import Footer from "../SharedFile/FooterFile/Footer";
 import { Link } from "react-router-dom";
@@ -111,12 +111,15 @@ const MyToys = () => {
                                             </div>
 
                                             <div className="buttons flex flex-col justify-center items-center">
-                                                <Link to={`/updateToy/${data._id}`} className="mb-2 flex justify-center items-center">
+                                                <Link to={`/viewDitles/${data._id}`} className="">
+                                                    <FaEye className="text-2xl text-blue-500"></FaEye>
+                                                </Link>
+                                                <Link to={`/updateToy/${data._id}`} className="my-2 ps-1">
                                                     <FaEdit className=" text-2xl text-green-500  "></FaEdit>
                                                 </Link>
-                                                <button onClick={() => deleteButton(data._id)} className="" >
+                                                <Link onClick={() => deleteButton(data._id)} className="" >
                                                     <FaRegTrashAlt className="text-2xl text-red-500"></FaRegTrashAlt>
-                                                </button>
+                                                </Link>
                                             </div>
 
                                         </div>

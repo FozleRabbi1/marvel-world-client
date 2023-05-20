@@ -10,6 +10,7 @@ import AddedToyes from "../AddedToyFile/AddedToyes";
 import Detailes from "../DetailesFile/Detailes";
 import Private from "../PriveteRouteFile/Private";
 import UpdateToy from "../UpdateToyFile/UpdateToy";
+import Blogs from "../BlogFile/Blogs";
 
 
 const router = createBrowserRouter([
@@ -46,6 +47,7 @@ const router = createBrowserRouter([
                 // loader: ({ params }) => fetch(`http://localhost:5000/updateRouteData/${params.id}`)
                 loader: ({ params }) => fetch(`https://marvel-toy-server.vercel.app/updateRouteData/${params.id}`)
             },
+            { path: "blog", element: <Blogs></Blogs> },
             { path: "login", element: <Login></Login> },
             { path: "register", element: <Register></Register> },
         ]

@@ -56,6 +56,7 @@ const Nav = () => {
                                     <ActiveLink to={"/allToys"} className=" px-3 py-2 rounded-md text-sm font-medium">
                                         All Toys
                                     </ActiveLink>
+                                    
 
 
                                     {
@@ -68,6 +69,10 @@ const Nav = () => {
                                             </ActiveLink>
                                         </>
                                     }
+
+                                    <ActiveLink to={"/blog"} className=" px-3 py-2 rounded-md text-sm font-medium">
+                                    Blogs
+                                    </ActiveLink>
 
                                     <ActiveLink to={"/register"} className=" px-3 py-2 rounded-md text-sm font-medium">
                                         Register

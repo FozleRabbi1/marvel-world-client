@@ -11,7 +11,7 @@ import Kidex from "../KidesFile/Kidex";
 // import Count from "../CountUpFile/Count";
 
 const Home = () => {
-    useTitle("home")
+    useTitle("Home")
     const [loader, setLoader] = useState(true);
     useEffect(() => {
         setTimeout(() => {

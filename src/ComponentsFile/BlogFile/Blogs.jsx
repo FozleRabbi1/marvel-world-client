@@ -1,5 +1,7 @@
+import useTitle from "../DynamicTitleFile/useTitle";
 
 const Blogs = () => {
+    useTitle("Blog")
     return (
         <div>
            

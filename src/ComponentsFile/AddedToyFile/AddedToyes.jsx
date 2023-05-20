@@ -2,8 +2,10 @@ import { useContext } from "react";
 import { AuthContext } from "../AuthProviderFile/AuthProvider";
 import Swal from "sweetalert2";
 import Footer from "../SharedFile/FooterFile/Footer";
+import useTitle from "../DynamicTitleFile/useTitle";
 
 const AddedToyes = () => {
+    useTitle("AddToye")
     const {user} = useContext(AuthContext)
 
 

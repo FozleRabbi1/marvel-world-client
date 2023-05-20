@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import notFound from '../../ComponentsFile/LottiReactFile/NotFound.json'
 import Lottie from 'lottie-react'
+import useTitle from '../DynamicTitleFile/useTitle';
 const NoteFound = () => {
+    useTitle("NotFound")
     return (
         <div>
             <div className=" w-full flex justify-center my-5">

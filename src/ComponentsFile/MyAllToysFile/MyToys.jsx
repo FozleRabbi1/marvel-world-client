@@ -5,8 +5,10 @@ import Swal from "sweetalert2";
 import Footer from "../SharedFile/FooterFile/Footer";
 import { Link } from "react-router-dom";
 import { Rating } from "@smastrom/react-rating";
+import useTitle from "../DynamicTitleFile/useTitle";
 
 const MyToys = () => {
+    useTitle("MyToyes")
     const { user } = useContext(AuthContext)
     const [userDatas, setUserData] = useState();
     const [isSort, setSort] = useState(true)

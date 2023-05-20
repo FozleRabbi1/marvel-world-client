@@ -13,8 +13,8 @@ const MyToys = () => {
 
     useEffect(() => {
         console.log(isSort)
-        fetch(`http://localhost:5000/logedInUserDatas?email=${user?.email}&isSort=${isSort}`)
-        // fetch(`https://marvel-toy-server.vercel.app/logedInUserDatas?email=${user?.email}`)
+        // fetch(`http://localhost:5000/logedInUserDatas?email=${user?.email}&isSort=${isSort}`)
+        fetch(`https://marvel-toy-server.vercel.app/logedInUserDatas?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setUserData(data))
     }, [user?.email, isSort])

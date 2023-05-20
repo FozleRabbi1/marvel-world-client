@@ -12,29 +12,16 @@ const MyToys = () => {
     const [isSort, setSort] = useState(true)
 
     useEffect(() => {
-        // fetch(`http://localhost:5000/logedInUserDatas?email=${user?.email}`)
-        fetch(`https://marvel-toy-server.vercel.app/logedInUserDatas?email=${user?.email}`)
+        console.log(isSort)
+        fetch(`http://localhost:5000/logedInUserDatas?email=${user?.email}&isSort=${isSort}`)
+        // fetch(`https://marvel-toy-server.vercel.app/logedInUserDatas?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setUserData(data))
-    }, [user?.email])
-
-    const shortData = () => {
-        const newData = [...userDatas];
-        const sortNewData = newData.sort((x, y) => x.price - y.price)
-        console.log(sortNewData)
-        setUserData(sortNewData)
-    }
-
-    const shortDataTwo = () => {
-        const newData = [...userDatas];
-        const sortNewData = newData.sort((x, y) => y.price - x.price)
-        console.log(sortNewData)
-        setUserData(sortNewData)
-    }
+    }, [user?.email, isSort])
 
 
     const deleteButton = (id) => {
-        console.log(id)
+        console.log(id) 
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't to delete this!",
@@ -82,12 +69,14 @@ const MyToys = () => {
                         :
 
                         <div>
+
                             <div className="button flex justify-end w-10/12  mx-auto ">
                                 {
-                                    isSort ? <button className="p-2 text-green-600 text-lg mb-2 bg-red-100 rounded-lg " onMouseUp={() => setSort(!isSort)} onClick={shortData}> High To Low </button> :
-                                        <button className="p-2 text-green-600 text-lg mb-2 bg-red-100 rounded-lg " onMouseUp={() => setSort(!isSort)} onClick={shortDataTwo}>Low To High</button>
+                                    isSort ? <button className="p-2 text-green-600 text-lg mb-2 bg-red-100 rounded-lg " onMouseUp={() => setSort(!isSort)}> Low To High </button> :
+                                        <button className="p-2 text-green-600 text-lg mb-2 bg-red-100 rounded-lg " onMouseUp={() => setSort(!isSort)} > High To Low </button>
                                 }
                             </div>
+
                             {
                                 userDatas?.map(data =>
 

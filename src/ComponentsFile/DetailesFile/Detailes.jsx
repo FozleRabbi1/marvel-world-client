@@ -1,8 +1,10 @@
 import { useLoaderData } from "react-router-dom";
 import './Detailes.css';
 import { Rating } from "@smastrom/react-rating";
+import useTitle from "../DynamicTitleFile/useTitle";
 
 const Detailes = () => {
+    useTitle("Detailes")
     const data = useLoaderData();
     const {
         picture, Sub_category, toy_name, seller_name, seller_email, price, rating, available_quantity, detail_description,

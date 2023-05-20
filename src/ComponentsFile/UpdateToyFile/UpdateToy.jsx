@@ -1,8 +1,10 @@
 import { useLoaderData } from "react-router-dom";
 import './Update.css';
 import Swal from "sweetalert2";
+import useTitle from "../DynamicTitleFile/useTitle";
 
 const UpdateToy = () => {
+    useTitle("Update")
     const data = useLoaderData();
     const {_id, price, picture, available_quantity, detail_description } = data[0]
 

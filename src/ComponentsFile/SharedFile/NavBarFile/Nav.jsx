@@ -148,7 +148,7 @@ const Nav = () => {
                 >
                     {(ref) => (
                         <div className="md:hidden" id="mobile-menu">
-                            <div ref={ref} className="px-2 pt-2 flex flex-col pb-3 space-y-1 sm:px-3">
+                            <div ref={ref} className="px-2 pt-2 flex flex-col pb-3 space-y-1 sm:px-3 bg-gray-300">
                                 <ActiveLink to={"/"} className=" px-3  py-2 rounded-md text-sm font-medium">
                                     Home
                                 </ActiveLink>

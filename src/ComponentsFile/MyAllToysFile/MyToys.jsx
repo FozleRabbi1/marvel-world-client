@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 const MyToys = () => {
     const { user } = useContext(AuthContext)
     const [userDatas, setUserData] = useState();
+    const [isSort, setSort] = useState(true)
 
     useEffect(() => {
         // fetch(`http://localhost:5000/logedInUserDatas?email=${user?.email}`)
@@ -15,6 +16,21 @@ const MyToys = () => {
             .then(res => res.json())
             .then(data => setUserData(data))
     }, [user?.email])
+
+    const shortData = () => {
+        const newData = [...userDatas];
+        const sortNewData = newData.sort((x, y) => x.price - y.price)
+        console.log(sortNewData)
+        setUserData(sortNewData)
+    }
+
+    const shortDataTwo = () => {
+        const newData = [...userDatas];
+        const sortNewData = newData.sort((x, y) => y.price - x.price)
+        console.log(sortNewData)
+        setUserData(sortNewData)
+    }
+
 
     const deleteButton = (id) => {
         console.log(id)
@@ -28,9 +44,6 @@ const MyToys = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-
-
-
 
                 // fetch(`http://localhost:5000/allToysDatas/${id}`, {
                 fetch(`https://marvel-toy-server.vercel.app/allToysDatas/${id}`, {
@@ -63,43 +76,58 @@ const MyToys = () => {
 
             <h2 className='text-center font-mono text-2xl font-bold py-5 text-red-500'>this is my toyes</h2>
 
-            {
-                userDatas?.length === 0 ? <h2 className="text-center font-mono text-5xl font-bold py-2 mb-44 mt-24 text-red-500">Data Not Available Add Some Products</h2>
-                    :
-                    userDatas?.map(data =>
 
-                        <div key={data._id}>
+            <div>
 
-                            <div className="flex bg-red-100 justify-around w-10/12 mx-auto mb-5">
-                                <img className="h-32 w-32 p-1 rounded-lg" src={data.picture} alt="" />
+                {
+                    userDatas?.length === 0 ? <h2 className="text-center font-mono text-5xl font-bold py-2 mb-44 mt-24 text-red-500">Data Not Available Add Some Products</h2>
+                        :
 
-                                <div className="text flex flex-col  justify-center">
-                                    <h2> <span className="font-bold"> Name</span> : {data.seller_name}</h2>
-                                    <h2> <span className="font-bold"> Toy</span> : {data.toy_name}</h2>
-                                    <h2> <span className="font-bold"> Email</span> : {data.seller_email}</h2>
-                                </div>
-
-                                <div className="text flex flex-col  justify-center">
-                                    <h2 className="text-red-500"> <span className="font-bold "> Price</span> : {data.price} =/$</h2>
-                                    <h2> <span className="font-bold"> Rating</span> : {data.rating}</h2>
-                                    <h2> <span className="font-bold"> Quantity</span> : {data.available_quantity} </h2>
-                                </div>
-
-                                <div className="buttons flex flex-col justify-center items-center">
-                                    <Link to={`/updateToy/${data._id}`} className="mb-2 flex justify-center items-center">
-                                        <FaEdit className=" text-2xl text-green-500  "></FaEdit>
-                                    </Link>
-                                    <button onClick={() => deleteButton(data._id)} className="" >
-                                        <FaRegTrashAlt className="text-2xl text-red-500"></FaRegTrashAlt>
-                                    </button>
-                                </div>
-
+                        <div>
+                            <div className="button flex justify-end w-10/12  mx-auto ">
+                                {
+                                    isSort ? <button className="p-2 text-green-600 text-lg mb-2 bg-red-100 rounded-lg " onMouseUp={() => setSort(!isSort)} onClick={shortData}> High To Low </button> :
+                                        <button className="p-2 text-green-600 text-lg mb-2 bg-red-100 rounded-lg " onMouseUp={() => setSort(!isSort)} onClick={shortDataTwo}>Low To High</button>
+                                }
                             </div>
+                            {
+                                userDatas?.map(data =>
 
+                                    <div key={data._id}>
+
+                                        <div className="flex bg-red-100 justify-around w-10/12 mx-auto mb-5">
+                                            <img className="h-32 w-32 p-1 rounded-lg" src={data.picture} alt="" />
+
+                                            <div className="text flex flex-col  justify-center">
+                                                <h2> <span className="font-bold"> Name</span> : {data.seller_name}</h2>
+                                                <h2> <span className="font-bold"> Toy</span> : {data.toy_name}</h2>
+                                                <h2> <span className="font-bold"> Email</span> : {data.seller_email}</h2>
+                                            </div>
+
+                                            <div className="text flex flex-col  justify-center">
+                                                <h2 className="text-red-500"> <span className="font-bold "> Price</span> : {data.price} =/$</h2>
+                                                <h2> <span className="font-bold"> Rating</span> : {data.rating}</h2>
+                                                <h2> <span className="font-bold"> Quantity</span> : {data.available_quantity} </h2>
+                                            </div>
+
+                                            <div className="buttons flex flex-col justify-center items-center">
+                                                <Link to={`/updateToy/${data._id}`} className="mb-2 flex justify-center items-center">
+                                                    <FaEdit className=" text-2xl text-green-500  "></FaEdit>
+                                                </Link>
+                                                <button onClick={() => deleteButton(data._id)} className="" >
+                                                    <FaRegTrashAlt className="text-2xl text-red-500"></FaRegTrashAlt>
+                                                </button>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                )
+                            }
                         </div>
-
-                    )
-            }
+                }
+            </div>
 
             <div className="mt-20">
                 <Footer></Footer>

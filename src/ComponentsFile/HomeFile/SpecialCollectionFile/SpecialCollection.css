@@ -1,0 +1,52 @@
+.galary{
+    width: 300px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotate 50s linear infinite;
+    margin: 0 auto;
+}
+@keyframes rotate{
+    from{
+        transform: perspective(1200px)rotateY(0deg);
+    }
+    to{
+        transform: perspective(1200px)rotateY(360deg);
+    }
+}
+.galary span img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.galary span{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transform: rotateY(calc(var(--i)* 45deg)) translateZ(380px);
+    border: 1px solid gray;
+}
+.galary span button{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: red;
+    font-size: 11px;
+    padding: 2px 18px;
+    font-weight: 600;
+    color: whitesmoke;
+    border-radius: 15px;
+    /* text-shadow: 1px 1px 1px rgb(1, 63, 63); */
+}
+
+.Special-headlins-style{
+    background-color: rgb(10, 177, 243);
+    width: 45%;
+    margin: 0 auto 150px;
+    color: white;
+}

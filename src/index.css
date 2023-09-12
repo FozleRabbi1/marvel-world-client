@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.headlins-style{
+    background-color: rgb(10, 177, 243);
+    width: 45%;
+    margin: 0 auto 25px;
+    color: white;
+}

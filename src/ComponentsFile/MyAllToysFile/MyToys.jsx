@@ -75,8 +75,10 @@ const MyToys = () => {
 
                             <div className="button flex justify-end w-10/12  mx-auto ">
                                 {
+                                    
                                     isSort ? <button className="p-2 text-green-600 text-lg mb-2 bg-red-100 rounded-lg " onMouseUp={() => setSort(!isSort)}> Low To High </button> :
                                         <button className="p-2 text-green-600 text-lg mb-2 bg-red-100 rounded-lg " onMouseUp={() => setSort(!isSort)} > High To Low </button>
+
                                 }
                             </div>
 

@@ -22,9 +22,8 @@ const Header = () => {
                         <div  data-aos="fade-left" className="animation   ">
                             <Lottie className='lottie  ' animationData={circkeAnimaion}></Lottie>
                         </div>
-                        <div  data-aos="fade-left" className=" absolute">
-                            <img className="image-upDown h-96 mt-10   " src="https://i.ibb.co/G7qQnML/fling3-removebg-preview.png" alt="" />
-
+                        <div  data-aos="fade-left" className="absolute">
+                            <img className="image-upDown h-96 mt-10" src="https://i.ibb.co/G7qQnML/fling3-removebg-preview.png" alt="" />
                         </div>
                     </div>
 

@@ -6,7 +6,7 @@ const CotactUs = () => {
     return (
         <div className='my-10 pb-10 overflow-x-hidden'>
 
-            <h2 className='text-center font-mono text-3xl font-bold py-5 ' >Contact Us</h2>
+            <h2 className='headlins-style text-center font-mono text-3xl font-bold  ' >Contact Us</h2>
 
             <div className='grid md:grid-cols-2'>
                 <div data-aos="fade-right" className="contact-anim ps-6">

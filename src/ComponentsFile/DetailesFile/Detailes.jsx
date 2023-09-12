@@ -31,7 +31,7 @@ const Detailes = () => {
                     <h3> <span className="font-bold">Price</span> : {price} $=/</h3>
                     <h3> <span className="font-bold">Quantity</span> : {available_quantity}</h3>
                     <Rating
-                        style={{ maxWidth: 110}}
+                        style={{ maxWidth: 110 }}
                         value={rating}
                         readOnly
                     />

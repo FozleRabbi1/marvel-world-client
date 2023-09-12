@@ -36,7 +36,6 @@ const AllToys = () => {
         const value = e.target.searchFiled.value;
         setName(value)
         e.target.reset()
-
     }
     return (
         <div>
@@ -75,7 +74,8 @@ const AllToys = () => {
                                 <tbody className="">
                                     {/* row 1 */}
                                     {
-                                        datas.slice(0, 20).map((data, index) =>
+                                        // datas.slice(0, 20).map((data, index) =>
+                                        datas.map((data, index) =>
                                             <tr key={data._id} className="">
                                                 <th className="bg-gray-500 text-white">
                                                     <label>

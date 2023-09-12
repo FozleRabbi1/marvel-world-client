@@ -31,8 +31,7 @@ const Home = () => {
                         <Header></Header>
                         <ToyCard></ToyCard>
                         <AllTabs></AllTabs>
-                       <SpecialCollection></SpecialCollection>
-
+                        <SpecialCollection></SpecialCollection>
                         <Kidex></Kidex>
                         <CotactUs></CotactUs>
                         <Footer></Footer>

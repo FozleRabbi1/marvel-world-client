@@ -1,4 +1,4 @@
-# BEST_FOOD_CORNER
+# Kidlo
 
 * -Free Returns and Free Shipping
 * -Live Link : https://toybiz-27b17.firebaseapp.com/

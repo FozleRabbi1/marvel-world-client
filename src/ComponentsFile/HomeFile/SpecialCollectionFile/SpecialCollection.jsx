@@ -2,7 +2,7 @@ import './SpecialCollection.css';
 
 const SpecialCollection = () => {
     return (
-        <div className='my-24 mb-44'>
+        <div className='pt-4 pb-44 bg-base-200'>
             <h2 className='Special-headlins-style text-center font-mono text-3xl font-bold'>Special Collection</h2>
             <div className="galary">
 

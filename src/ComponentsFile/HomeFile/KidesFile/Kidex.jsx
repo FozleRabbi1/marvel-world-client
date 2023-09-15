@@ -15,8 +15,8 @@ const Kidex = () => {
     ]
 
     return (
-        <div className="py-10 md:py-32 bg-slate-200">
-            <h2 className='headlins-style text-center font-mono text-3xl font-bold -mt-8 mb-8'>Happy Customers </h2>
+        <div className="pt-4 pb-10 md:py-32 bg-slate-200">
+            <h2 className='headlins-style text-center font-mono text-3xl font-bold'>Happy Customers </h2>
 
             <ul className="accordian mx-auto">
 
@@ -24,7 +24,6 @@ const Kidex = () => {
                     images.slice(0, 5).map((image, i) =>
                         <li className=" relative-style" key={i}>
                             <img src={image} alt="" />
-
                             <div className="absolute-style">
                                 <div className="context-div">
                                     <button>show review</button>

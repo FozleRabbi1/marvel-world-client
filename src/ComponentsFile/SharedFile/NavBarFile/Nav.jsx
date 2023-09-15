@@ -1,5 +1,5 @@
 import { Transition } from "@headlessui/react";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ActiveLink from "../../ActiveLinkFile/ActiveLink";
 import "./Nav.css";
 import { AuthContext } from "../../AuthProviderFile/AuthProvider";
@@ -9,19 +9,29 @@ import { FaEnvelopeOpen, FaUserAlt } from "react-icons/fa";
 
 const Nav = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [scrollY, setScrollY] = useState(0);
     const { user, logOut } = useContext(AuthContext)
+
     const logOutFun = () => {
         logOut()
             .then(() => { })
     }
-    // console.log(user)
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollY(window.scrollY);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     return (
-        // <div className="sticky top-0 z-50">
-        <div className="sticky top-0 z-50" >
+        <div className="  top-0 z-50" >
             <nav>
 
-                <div className=" hidden md:block ">
+            <div className=" hidden md:block ">
                     <div className="nav-herder flex justify-between items-center   py-1 bg-slate-100 sm:px-4 lg:px-4 ">
                         <h2> Free Returns and Free Shipping <br />
                             <small> Copyright © 2023-2024 This Company. All rights reserved.</small>
@@ -40,8 +50,10 @@ const Nav = () => {
                         </div>
                     </div>
                 </div>
+               
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-4">
+
+                <div className={` max-w-7xl mx-auto px-4 sm:px-4 lg:px-4 ${scrollY > 200 ? " fixed top-0 z-50 duration-700 w-full nav-bgStyle " : ""}`}>
                     <div className="flex items-center justify-between h-16">
 
                         <div className="flex w-full justify-between items-center">
@@ -52,7 +64,7 @@ const Nav = () => {
                             <div className="hidden md:block">
                                 <div className="ml-10 flex items-baseline space-x-1 text-center">
                                     <ActiveLink to={"/"} className=" px-3  py-2 rounded-md text-sm font-medium">
-                                        Home
+                                        Home 
                                     </ActiveLink>
 
                                     <ActiveLink to={"/allToys"} className=" px-3 py-2 rounded-md text-sm font-medium">
@@ -216,13 +228,10 @@ const Nav = () => {
                         </div>
                     )}
                 </Transition>
+
             </nav>
-
-
-            {/* <div className="divider m-0 p-0"></div>  */}
             <hr />
         </div>
-        // </div>
     );
 };
 

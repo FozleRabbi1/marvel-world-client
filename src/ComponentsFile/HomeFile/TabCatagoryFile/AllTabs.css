@@ -13,9 +13,11 @@
     /* box-shadow: -10px 0 10px -15px rgba(0,0,0,0.45) inset; */
 }
 .single-data-style .button{
-    background-color: rgba(53, 250, 250,0.7);    
+    /* background-color: rgba(7, 245, 245, 0.9);     */
+    background-color: rgb(10, 177, 243);    
     padding: 8px;
     margin-top: 5px;
     border-radius: 0px 0 10px 10px;
     font-weight: 600;
+    color: white;
 }

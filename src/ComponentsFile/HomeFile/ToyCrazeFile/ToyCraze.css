@@ -1,0 +1,47 @@
+.toyCraze-main-div{
+    background-color: rgba(0,0,0,0.9);
+    color: white;
+    position: relative;
+    overflow: hidden;
+    /* z-index: 2; */
+    box-sizing: border-box;
+}
+.toyCraze-main-div::before{
+    content:  "";
+    position: absolute;
+    height: 400px;
+    width: 400px;
+    background-color: rgba(40, 0, 248, 0.3);
+    bottom: -100px;
+    left: -100px;
+    border-radius: 50%;
+    box-shadow: 15px 15px 4000px rgba(25, 0, 255,0.9) ;
+    /* z-index: -1; */
+}
+.toyCraze-main-div::after{
+    content:  "";
+    position: absolute;
+    height: 400px;
+    width: 400px;
+    background-color: rgba(40, 0, 248, 0.3);
+    top: -100px;
+    right: -100px;
+    border-radius: 50%;
+    box-shadow: 15px 15px 4000px rgba(25, 0, 255,0.9) ;
+    /* z-index: -1; */
+}
+.toyCraze-main-div .content-div{
+    /* background-color: antiquewhite; */
+    z-index: 22;
+    box-sizing: border-box;
+}
+.toyCraze-main-div .single-cards{
+    border: 1px solid transparent;
+    padding: 10px;
+    transition: all 0.5s;
+    border-radius: 5px;
+}
+.toyCraze-main-div .single-cards:hover{
+    /* border: 1px solid aqua; */
+    box-shadow: 1px 1px 5px rgba(5, 240, 240, 0.7);
+}

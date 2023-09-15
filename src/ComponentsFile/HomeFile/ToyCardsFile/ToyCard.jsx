@@ -14,10 +14,10 @@ const ToyCard = () => {
 
 
     return (
-        <div className=' pb-4'>
+        <div className=' bg-gray-200 pt-4'>
             <h2 className='headlins-style text-center font-mono text-3xl font-bold my-5'>All Suppre Heros </h2>
 
-            <div className='bg-gray-200 py-10'>
+            <div className='py-10'>
                 <div className=" grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-2 md:px-10 gap-3 md:gap-y-8 md:gap-x-8 ">
 
                     {

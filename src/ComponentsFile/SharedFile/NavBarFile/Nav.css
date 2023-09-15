@@ -1,3 +1,4 @@
+
 .nav-herder h2, .nav-herder .contact p{
     font-size: 14px;
     font-weight: 500;
@@ -9,4 +10,8 @@
 }
 .nav-herder .contact p:last-child{
     border: none;
+}
+.nav-bgStyle{
+    background-color: rgb(10, 177, 243);
+    color: white;
 }

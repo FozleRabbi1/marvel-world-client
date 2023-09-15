@@ -2,7 +2,7 @@
 const Footer = () => {
     return (
         <div data-aos="fade-up">
-            <footer className="footer p-10 bg-gray-500 text-base-content">
+            <footer className="footer p-10 bg-sky-500 text-white">
                 <div>
                     <span className="footer-title">Services</span>
                     <a className="link link-hover">Branding</a>

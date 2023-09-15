@@ -9,6 +9,7 @@ import Lottie from 'lottie-react'
 import { useEffect, useState } from "react";
 import Kidex from "../KidesFile/Kidex";
 import SpecialCollection from "../SpecialCollectionFile/SpecialCollection";
+import ToyCraze from "../ToyCrazeFile/ToyCraze";
 
 const Home = () => {
     useTitle("Home")
@@ -32,6 +33,7 @@ const Home = () => {
                         <ToyCard></ToyCard>
                         <AllTabs></AllTabs>
                         <SpecialCollection></SpecialCollection>
+                        <ToyCraze></ToyCraze>
                         <Kidex></Kidex>
                         <CotactUs></CotactUs>
                         <Footer></Footer>
